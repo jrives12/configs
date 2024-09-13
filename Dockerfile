@@ -3,4 +3,5 @@ WORKDIR /usr/local/app
 
 RUN apt-get update; apt-get upgrade
 COPY requirements.txt ./
-RUN apt-get install -y $(cat requirements.txt)
+COPY .vimrc /root/.vimrc
+RUN apt install -y --no-install-recommends < requirements.txt
